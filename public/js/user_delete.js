@@ -5,13 +5,13 @@ $(document).ready(function () {
   const emailDelete = $('#emailDeleteField');
 
   const deleteModal = document.getElementById('deleteModal');
-  deleteModal.addEventListener('show.bs.modal', function (event) {
+  deleteModal.addEventListener('show.bs.modal', function () {
     elementEmail.html(
       'Email: ' + $('#userEmail').html().replace('Email: ', ''),
     );
   });
 
-  deleteModal.addEventListener('hide.bs.modal', function (event) {
+  deleteModal.addEventListener('hide.bs.modal', function () {
     resMsg.attr('hidden', '');
   });
 
