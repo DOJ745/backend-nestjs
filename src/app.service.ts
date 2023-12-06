@@ -11,7 +11,7 @@ export class AppService {
     const dataSource = PostgresDataSource;
     const userRepository = dataSource.getRepository(User);
     const user = await userRepository.findOne({
-      where: { email: email }
+      where: { email: email },
     });
     return user;
   }
