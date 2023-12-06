@@ -42,12 +42,15 @@ export class AppController {
     if (user !== null) {
       const buffer = user.pdf;
 
-      res.set({
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename=user.pdf',
-        'Content-Length': buffer.length,
-      });
-      return res.end(buffer);
+      //if (buffer.length !== null && buffer.byteLength > 0) {
+      if (typeof buffer !== undefined && typeof buffer !== null) {
+        res.set({
+          'Content-Type': 'application/pdf',
+          'Content-Disposition': 'attachment; filename=user.pdf',
+          'Content-Length': buffer.length,
+        });
+        return res.end(buffer);
+      }
     }
     return res
       .status(HttpStatus.BAD_REQUEST)
