@@ -41,7 +41,6 @@ export class AppController {
     if (user !== null) {
       const buffer = user.pdf;
 
-      // Be careful with debug!
       if (buffer !== undefined && buffer !== null) {
         res.set({
           'Content-Type': 'application/pdf',
@@ -88,7 +87,8 @@ export class AppController {
       await user.save();
 
       return res.send({ message: 'PDF has been saved?', status: 'true' });
+    } else {
+      return res.send({ message: 'PDF has been saved?', status: 'false' });
     }
-    return res.send({ message: 'PDF has been saved?', status: 'false' });
   }
 }
