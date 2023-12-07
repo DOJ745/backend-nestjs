@@ -44,16 +44,6 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
-## DB Docker setup
-```
-$ sudo docker run --name local_pg \
-  -e POSTGRES_ROOT_PASSWORD=toor \
-  -e POSTGRES_DATABASE=test \
-  -e POSTGRES_USER=test \
-  -e POSTGRES_PASSWORD=test \
-  -d -p 127.0.0.1:5432:5432 postgres:10.8-alpine
-```
-
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
