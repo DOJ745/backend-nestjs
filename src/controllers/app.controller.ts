@@ -34,7 +34,7 @@ export class AppController {
 
   @Get('/sign-up')
   @Render('sign_up')
-  signUp() {}
+  //signUp() {}
 
   @Get('/user-pdf/:email')
   async showPdf(@Param('email') email: string, @Res() res) {
@@ -43,6 +43,7 @@ export class AppController {
       const buffer = user.pdf;
 
       //if (buffer.length !== null && buffer.byteLength > 0) {
+      // Be careful with debug!
       if (typeof buffer !== undefined && typeof buffer !== null) {
         res.set({
           'Content-Type': 'application/pdf',
