@@ -9,14 +9,14 @@ $(document).ready(function () {
   const oldEmail = $('#userEmail').html().replace('Email: ', '');
 
   const updateModal = document.getElementById('updateModal');
-  updateModal.addEventListener('show.bs.modal', function (event) {
+  updateModal.addEventListener('show.bs.modal', function () {
     emailField.val($('#userEmail').html().replace('Email: ', ''));
     firstNameField.val($('#userFirstName').html().replace('First name: ', ''));
     lastNameField.val($('#userLastName').html().replace('Last name: ', ''));
     oldEmailField.val(oldEmail);
   });
 
-  updateModal.addEventListener('hide.bs.modal', function (event) {
+  updateModal.addEventListener('hide.bs.modal', function () {
     resMsg.attr('hidden', '');
   });
 
