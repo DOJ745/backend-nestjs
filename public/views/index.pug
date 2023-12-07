@@ -19,7 +19,7 @@ block content
             br
             div.row.form-signin
               button.col.btn.btn-primary.m-1(type='submit') Sign in
-              a.col.btn.btn-primary.m-1(href='/sign-up') Sign up
+              a.col.btn.btn-success.m-1(href='/sign-up') Sign up
 
           h3.text-center Generate PDF for user by email
           form#pdfForm.col-6.w-25(method='POST' action='/user-pdf')
@@ -34,13 +34,13 @@ block content
                 minlength=5
                 maxlength=48)
               div.row.form-signin
-                button.col.btn.btn-primary.m-1(type='submit') Generate PDF
+                button.col.btn.btn-warning.m-1(type='submit') Generate PDF
 
     h1 Users list
     ul
       each user in users
         if user.pdf !== null
-          li Name: #{user.firstName} #{user.lastName}, Email: #{user.email}, PDF: exist
+          li Name: #{user.firstName} #{user.lastName}, Email: #{user.email}, PDF: exist (upload via sign in)
         else
           li Name: #{user.firstName} #{user.lastName}, Email: #{user.email}, PDF: none
 
