@@ -3,7 +3,7 @@ import { User } from './models/user.model';
 
 export const PostgresDataSource = new DataSource({
   type: 'postgres',
-  host: 'localhost',
+  host: 'postgres-container', // should be the same as the name of container with db
   port: 5432,
   username: 'postgres',
   password: 'test',
