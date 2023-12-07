@@ -34,28 +34,31 @@ export class AppController {
 
   @Get('/sign-up')
   @Render('sign_up')
-  //signUp() {}
-
+  signUp() {}
   @Get('/user-pdf/:email')
   async showPdf(@Param('email') email: string, @Res() res) {
     const user = await this.appService.getUserByEmail(email);
     if (user !== null) {
       const buffer = user.pdf;
 
-      //if (buffer.length !== null && buffer.byteLength > 0) {
       // Be careful with debug!
-      if (typeof buffer !== undefined && typeof buffer !== null) {
+      if (buffer !== undefined && buffer !== null) {
         res.set({
           'Content-Type': 'application/pdf',
           'Content-Disposition': 'attachment; filename=user.pdf',
           'Content-Length': buffer.length,
         });
         return res.end(buffer);
+      } else {
+        return res
+          .status(HttpStatus.BAD_REQUEST)
+          .send({ message: "'You hadn't generated PDF!" });
       }
+    } else {
+      return res
+        .status(HttpStatus.BAD_REQUEST)
+        .send({ message: 'No such user!' });
     }
-    return res
-      .status(HttpStatus.BAD_REQUEST)
-      .send({ message: 'No such user!' });
   }
 
   @Post('/user-pdf')
